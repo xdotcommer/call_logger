@@ -13,7 +13,7 @@ The Call Logger Service is a Rails-based system that:
 ## Requirements
 
 - Ruby 3.3.0
-- Rails 7.x
+- Rails 8.x
 - PostgreSQL
 - Bundler
 
