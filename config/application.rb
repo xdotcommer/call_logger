@@ -15,6 +15,6 @@ module CallLogger
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 8.0
     config.api_only = true
-    config.hosts << 'call_logger'
+    config.hosts << "call_logger"
   end
 end

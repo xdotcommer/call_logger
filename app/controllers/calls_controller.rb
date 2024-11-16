@@ -1,5 +1,4 @@
 class CallsController < ApplicationController
-
   def index
     @calls = Call.all
     render json: @calls
@@ -7,7 +6,7 @@ class CallsController < ApplicationController
 
   def create
     # Parse JSON input manually if it's a JSON request
-    params_hash = if request.content_type == 'application/json'
+    params_hash = if request.content_type == "application/json"
       JSON.parse(request.body.read)
     else
       params
@@ -21,9 +20,9 @@ class CallsController < ApplicationController
       render json: @call.errors, status: :unprocessable_entity
     end
   rescue ActionController::ParameterMissing
-    render json: { error: 'Missing required parameters' }, status: :bad_request
+    render json: { error: "Missing required parameters" }, status: :bad_request
   rescue JSON::ParserError
-    render json: { error: 'Invalid JSON format' }, status: :bad_request
+    render json: { error: "Invalid JSON format" }, status: :bad_request
   end
 
   def last_call_time
@@ -31,7 +30,7 @@ class CallsController < ApplicationController
     if @last_call_time
       render json: @last_call_time
     else
-      render json: { error: 'No calls found' }, status: :not_found
+      render json: { error: "No calls found" }, status: :not_found
     end
   end
 
@@ -40,7 +39,7 @@ class CallsController < ApplicationController
   def call_params_from_hash(hash)
     # Handle both string and symbol keys
     data = hash.with_indifferent_access
-    data = data[:call] if data[:call] || data['call']
+    data = data[:call] if data[:call] || data["call"]
 
     ActionController::Parameters.new(data).permit(
       :alcohol_related,

@@ -61,7 +61,7 @@ class Call < ApplicationRecord
     when :json
       calls.to_json
     when :csv
-      require 'csv'
+      require "csv"
       CSV.generate do |csv|
         csv << Call.column_names
         calls.each do |call|

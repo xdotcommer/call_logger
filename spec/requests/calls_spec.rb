@@ -72,7 +72,7 @@ RSpec.describe 'Calls', type: :request do
         allow(Call).to receive(:new).and_return(call_instance)
         allow(call_instance).to receive(:save).and_return(false)
         allow(call_instance).to receive(:errors).and_return(
-          { 'incident_number' => ["can't be blank"] }
+          { 'incident_number' => [ "can't be blank" ] }
         )
 
         post '/calls',
