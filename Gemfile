@@ -6,6 +6,9 @@ gem "bootsnap", require: false
 
 group :development, :test do
   gem 'rubocop', require: false
+  gem 'rubocop-rails', require: false
+  gem 'rubocop-rails-omakase', require: false
+
   gem 'brakeman', require: false
   gem "factory_bot_rails"
   gem "faker"
