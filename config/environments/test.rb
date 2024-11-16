@@ -4,7 +4,7 @@
 # and recreated between test runs. Don't rely on the data there!
 
 Rails.application.configure do
-  # config.active_record.maintain_test_schema = true
+  config.use_active_record = false
   config.enable_reloading = false
   config.eager_load = ENV["CI"].present?
   config.public_file_server.headers = { "cache-control" => "public, max-age=3600" }

@@ -5,8 +5,11 @@ gem "puma", "~> 6.4"
 gem "bootsnap", require: false
 
 group :development, :test do
-  gem 'rubocop', require: false
-  gem 'brakeman', require: false
+  gem "rubocop", require: false
+  gem "rubocop-rails", require: false
+  gem "rubocop-rails-omakase", require: false
+
+  gem "brakeman", require: false
   gem "factory_bot_rails"
   gem "faker"
   gem "rspec-rails"
@@ -15,6 +18,7 @@ end
 
 group :test do
   gem "shoulda-matchers", "~> 6.4"
+  gem "activerecord-nulldb-adapter", "~> 1.1.1"
 end
 
 group :development do

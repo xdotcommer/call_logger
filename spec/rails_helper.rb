@@ -7,6 +7,7 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'rspec/rails'
 require 'factory_bot_rails'
 require 'shoulda/matchers'
+require 'nulldb_rspec'
 
 Dir[Rails.root.join('spec', 'support', '**', '*.rb')].sort.each { |f| require f }
 
@@ -24,7 +25,19 @@ RSpec.configure do |config|
 
   config.infer_spec_type_from_file_location!
   config.filter_rails_from_backtrace!
-    config.before(:each, type: :request) do
+
+  config.before(:suite) do
+    NullDB.configure do |ndb|
+      ndb.project_root = Rails.root
+    end
+    NullDB.nullify
+  end
+
+  config.before(:each, type: :request) do
     host! 'localhost'
+  end
+
+  config.after(:suite) do
+    NullDB.restore
   end
 end
