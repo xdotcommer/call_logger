@@ -6,6 +6,10 @@ FROM ruby:3.3.4-slim
 RUN apt-get update -qq && \
     apt-get install -y build-essential git libsqlite3-dev
 
+# Create and set permissions for bundle directory
+RUN mkdir -p /usr/local/bundle && \
+    chmod 777 /usr/local/bundle
+
 # Set working directory
 WORKDIR /app
 
