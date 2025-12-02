@@ -18,7 +18,7 @@ end
 
 group :test do
   gem "shoulda-matchers", "~> 6.4"
-  gem "activerecord-nulldb-adapter", "~> 1.1.1"
+  gem "activerecord-nulldb-adapter", "~> 1.2.0"
 end
 
 group :development do
